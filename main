@@ -1,0 +1,29 @@
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+int mean(int* a, int size);
+
+int main() {
+    int size;
+    srand(time(NULL));
+    cout << "Array size: ";
+    cin >> size;
+    int* a;
+    a = new int[size];
+    cout << "Array: ";
+    for (int i = 0; i < size; i++) {
+        a[i] = rand() % 100;
+        cout << a[i] << ",";
+    };
+    cout << endl;
+    int result = mean(a, size);
+    cout << "Average: " << result << endl;
+}
+
+int mean(int* a, int size) {
+    int i, max = 0;
+    for (i = 1; i < size; i++)
+        max = max + a[i];
+    int avg = max / size;
+    return avg;
+}
